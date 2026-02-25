@@ -1,16 +1,29 @@
 Vagrant.configure("2") do |config|
-	config.vm.box = "alvistack/ubuntu-24.04"
-	config.vm.box_version = "20260108.1.1"
-	config.vm.provider "virtualbox" do |v|
-		v.memory = 1024
-		v.cpus = 1
-	end
+	config.vm.box = "bento/ubuntu-24.04"
+	config.vm.box_version = "202510.26.0"
+    config.vm.synced_folder ".", "/vagrant"
+	# config.vm.provider "virtualbox" do |v|
+	# 	v.memory = 1024
+	# 	v.cpus = 1
+	# end
 	config.vm.define "cde-sous" do |control|
 		control.vm.hostname = "cde-sousS"
-		control.vm.network "public_network", ip: "192.168.56.110", hostname: true
+		control.vm.network "private_network", ip: "192.168.42.110", auto_config: true
+        control.vm.provision "shell", path: "./scripts/setup-k3s.sh", args: ["server", "192.168.56.110", ""]
+        control.vm.provider "virtualbox" do |v|
+            v.memory = 1024
+            v.cpus = 1
+            v.name = "cde-sousS"
+        end
 	end
 	config.vm.define "pgimeno" do |control|
 		control.vm.hostname = "pgimenoSW"
-		control.vm.network "public_network", ip: "192.168.56.111", hostname: true
+		control.vm.network "private_network", ip: "192.168.42.111", auto_config: true
+        control.vm.provision "shell", path: "./scripts/setup-k3s.sh", args: ["agent", "192.168.56.111", "192.168.42.110"]
+        control.vm.provider "virtualbox" do |v|
+            v.memory = 1024
+            v.cpus = 1
+            v.name = "pgimenoSW"
+        end
 	end
 end
