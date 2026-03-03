@@ -2,13 +2,17 @@
 
 # To do manually in GitLab UI:
 # - Create a Gitlab repo
-# - Replace <YOUR_GITLAB_REPO_URL_HERE> with the actual repo URL (e.g., http://gitlab-test.com:8181/root/test.git)
+# - Replace <YOUR_GITLAB_REPO_URL_HERE> with the actual repo URL (e.g., https://gitlab-gui.com/root/test.git -> repo is root/test.git)
 # - Create a Gitlab PAT with api and repo scopes
 # - Replace <YOUR_GITLAB_PAT_HERE> with the actual PAT value
 
+# To do manually in GitHub UI (to see the difference between GitHub and GitLab repos in ArgoCD):
+# - modify the deployment manifest in the GitHub repo, commit and push the changes
+# In ArgoCD UI, 'website' will be OutOfSync, while 'website-gitlab' will automatically sync and show the changes
+
 GITLAB_PWD=$(kubectl get secret gitlab-gitlab-initial-root-password -n gitlab -o jsonpath="{.data.password}" | base64 -d)
 GITLAB_REPO=<YOUR_GITLAB_REPO_URL_HERE>
-GITLAB_URL=gitlab-test.com:8181/$GITLAB_REPO
+GITLAB_URL=gitlab-gui.com/$GITLAB_REPO
 GITLAB_SVC=http://gitlab-webservice-default.gitlab.svc:8181
 GITLAB_PAT=<YOUR_GITLAB_PAT_HERE>
 
