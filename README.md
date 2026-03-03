@@ -2,6 +2,16 @@
 
 This project should be cloned in a Virtual Machine of your choice.
 
+## Requirements
+- Vagrant
+- VirtualBox
+- K3d
+- Docker
+- Kubectl
+- ArgoCD CLI
+- Helm
+- Git
+ 
 ## p1
 ### Start a K3s cluster
 ```bash
