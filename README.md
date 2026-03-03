@@ -2,7 +2,8 @@
 
 This project should be cloned in a Virtual Machine of your choice.
 
-## Start a K3s cluster
+## p1 & p2
+### Start a K3s cluster
 ```bash
 cd p1
 vagrant up
@@ -14,3 +15,6 @@ You can either use SSH:
 vagrant ssh cde-sous
 ```
 Or you can use a virtual machine manager.
+
+## p3
+In your terminal, run: ```./setup.sh```
