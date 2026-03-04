@@ -11,10 +11,10 @@
 # In ArgoCD UI, 'website' will be OutOfSync, while 'website-gitlab' will automatically sync and show the changes
 
 GITLAB_PWD=$(kubectl get secret gitlab-gitlab-initial-root-password -n gitlab -o jsonpath="{.data.password}" | base64 -d)
-GITLAB_REPO=root/hello.git
+GITLAB_REPO=<YOUR_GITLAB_REPO_URL_HERE> 
 GITLAB_URL=gitlab-gui.com/$GITLAB_REPO
 GITLAB_SVC=http://gitlab-webservice-default.gitlab.svc:8181
-GITLAB_PAT=glpat-IYOK-kU4tZ-qSORQTW46uG86MQp1OjEH.01.0w1pk4bt1
+GITLAB_PAT=<YOUR_GITLAB_PAT_HERE>
 
 git clone http://$GITLAB_URL gitlab-repo
 
