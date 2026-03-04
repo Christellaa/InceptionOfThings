@@ -21,6 +21,11 @@ helm install gitlab gitlab/gitlab \
   --set global.hosts.externalIP=0.0.0.0 \
   --set global.hosts.https=false \
   --set certmanager-issuer.email=test@example.com \
+  --set global.registry.install=false \
+  --set gitlab-runner.install=false \
+  --set prometheus.install=false \
+  --set grafana.install=false \
+  --set global.ingress.enabled=false \
   -n gitlab
 
 

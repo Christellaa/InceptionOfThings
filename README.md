@@ -11,9 +11,7 @@ This project should be cloned in a Virtual Machine of your choice.
 - ArgoCD CLI
 - Helm
 - Git
-
-Each Vagrantfile works with Debian Trixie. Change the `vm.box` and `vm.box_version` with [Hashicorp Boxes](https://portal.cloud.hashicorp.com/vagrant/discover/) for it to work on your OS, or use a virtual machine for this project.
-
+ 
 ## p1
 ### Start a K3s cluster
 ```bash
