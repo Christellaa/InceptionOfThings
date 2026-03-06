@@ -1,5 +1,5 @@
 # InceptionOfThings
-DevOps project aimed at building a fully automated Kubernetes infrastructure following GitOps principles.
+42 School DevOps team project aimed at building a fully automated Kubernetes infrastructure following GitOps principles.
 
 The infrastructure allows deploying and updating containerized applications simply by changing the Docker image version in the Git repository. ArgoCD then automatically synchronizes the cluster state with the configuration declared in the repository manifests.
 
